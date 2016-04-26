@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet private weak var display: UILabel!
     
     private var userIsInTheMiddleOfTyping = false
@@ -30,6 +30,19 @@ class ViewController: UIViewController {
         }
         set {
             display.text = String(newValue)
+        }
+    }
+    
+    private var program: CalculatorBrain.PropertyList?
+    
+    @IBAction func save() {
+        program = brain.program
+    }
+    
+    @IBAction func restore() {
+        if program != nil {
+            brain.program = program!
+            displayValue = brain.result
         }
     }
     
