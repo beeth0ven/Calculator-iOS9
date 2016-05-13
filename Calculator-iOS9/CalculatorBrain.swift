@@ -18,6 +18,10 @@ class CalculatorBrain {
         accumulator = operand
     }
     
+    func addUnaryOperation(symbol: String, operation: (Double) -> Double) {
+        operations[symbol] = .UnaryOperation(operation)
+    }
+    
     private var operations = [
         "π": Operation.Constant(M_PI),
         "e": Operation.Constant(M_E),
